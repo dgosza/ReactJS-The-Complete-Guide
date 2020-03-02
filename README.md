@@ -6,4 +6,9 @@ This repository is destinated to a course im doing on Udemy to learn React, the 
 
 Link: https://www.udemy.com/course/react-the-complete-guide-incl-redux
 
-## Topics learned so far
+## some topics learned so far
+
+
+- arrow function
+- material ui
+- jsx
