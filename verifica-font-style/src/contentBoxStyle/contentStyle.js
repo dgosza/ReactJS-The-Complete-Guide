@@ -1,13 +1,15 @@
 import React from 'react';
+import Grid from '@material-ui/core/Grid'
 
+const ContainerStyle = (props) => {
 
+    return (
 
-const ContainerStyle = (props) =>{
-    return(
-        <div className="col s12 l4">
-            <p className="flow-text fontName"><small>{props.fontName}</small></p>
-            <p className="flow-text textFont"><small>{props.text}</small></p>
-        </div>
+        <Grid item xs={4} align="center">
+            <h1 >{props.fontName}</h1>
+            <span className={props.font}>{props.text}</span>
+        </Grid>
+
     )
 }
 
