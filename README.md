@@ -10,5 +10,7 @@ Link: https://www.udemy.com/course/react-the-complete-guide-incl-redux
 
 
 - arrow function
-- material ui
+- react hook useState
+- 2 ways to styling components
+- continuous learning material ui
 - jsx
