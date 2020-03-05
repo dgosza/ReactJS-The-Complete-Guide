@@ -45,11 +45,23 @@ const App = () => {
    }
 
 
+   const style ={
+      button:{
+         backgroundColor: 'blue',
+         font: 'inherit',
+         borderColor: '1px solid blue',
+         padding: '8px',
+         cursor: 'pointer'
+      }
+   }
+
 
    return (
       <div className="App">
          <h1>React App</h1>
          <h1>learning</h1>
+
+         <button style={style.button} >Normal button without material component</button>
 
          <Button variant="contained" color="secondary" onClick={() => switchNameHandler('Trocando nome by arrowfunction')}>
             click here

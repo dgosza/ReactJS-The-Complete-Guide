@@ -1,7 +1,7 @@
-.person{
+.Person{
     border: 1px solid black;
     box-shadow: 5px 5px 10px rgb(4, 86, 161);
-    margin-top:15px;
+    margin:10px auto;
     width:400px;
     height: 130px;
     text-align: center;
