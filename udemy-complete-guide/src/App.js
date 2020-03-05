@@ -13,6 +13,10 @@ const App = () => {
       otherState: 'AnotherState'
    });
 
+   const [show, setShow] = useState({
+      showPersons: false
+   })
+
    const switchNameHandler = (newName) => {
       // console.log('entrei no button hehe')
       //DONT DO THIS: personsState.persons[0].name = 'Diego Fulano de Tal'
@@ -26,7 +30,7 @@ const App = () => {
       })
    }
 
-   const nameChangedHandler = (event) =>{
+   const nameChangedHandler = (event) => {
       setPersonsState({
          persons: [
             { name: 'Maxxxxx', age: 999 },
@@ -45,8 +49,8 @@ const App = () => {
    }
 
 
-   const style ={
-      button:{
+   const style = {
+      button: {
          backgroundColor: 'blue',
          font: 'inherit',
          borderColor: '1px solid blue',
@@ -55,6 +59,43 @@ const App = () => {
       }
    }
 
+   const togglePersonsHandler = () => {
+      const doesShow = show.showPersons;
+      setShow({ showPersons: !doesShow })
+   }
+
+   let personsP = null
+
+   if (show.showPersons) {
+      personsP = (
+         <div >
+            <Person
+               name={personsState.persons[0].name}
+               age={personsState.persons[0].age}
+            >
+               This is a props children
+            </Person>
+
+            <Person
+               name={personsState.persons[1].name}
+               age={personsState.persons[1].age}
+               click={switchNameHandler.bind(this, 'maximilian be')} //passando como argumento pra function.
+               changed={nameChangedHandler}
+            >
+               My Hobbies: Racing
+            </Person>
+
+            <Person
+               name={personsState.persons[2].name}
+               age={personsState.persons[2].age}
+            >
+               inside the person component. we access the value using props.children
+            </Person>
+ 
+            <Person name={counter.counter}></Person>
+         </div>
+      );
+   }
 
    return (
       <div className="App">
@@ -63,38 +104,17 @@ const App = () => {
 
          <button style={style.button} >Normal button without material component</button>
 
-         <Button variant="contained" color="secondary" onClick={() => switchNameHandler('Trocando nome by arrowfunction')}>
-            click here
+         <Button variant="contained" color="secondary" onClick={togglePersonsHandler}>
+            Toggle Persons
          </Button>
 
          <Button variant="contained" color="secondary" onClick={addCounter}>
             click here to change the counter value, ++1
          </Button>
 
-         <Person
-            name={personsState.persons[0].name}
-            age={personsState.persons[0].age}
-         >
-            This is a props children
-         </Person>
-
-         <Person
-            name={personsState.persons[1].name}
-            age={personsState.persons[1].age}
-            click={switchNameHandler.bind(this, 'maximilian be')} //passando como argumento pra function.
-            changed={nameChangedHandler}
-         >
-            My Hobbies: Racing
-         </Person>
-
-         <Person
-            name={personsState.persons[2].name}
-            age={personsState.persons[2].age}
-         >
-            inside the person component. we access the value using props.children
-         </Person>
-
-         <Person name={counter.counter}></Person>
+         {
+            personsP ? personsP : null
+         }
 
       </div>
    )
