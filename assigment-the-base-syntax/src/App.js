@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import UserInput from './components/UserInput'
+import UserOutput from './components/UserOutput'
 
-function App() {
+
+const App = () => {
+
+  const [name, setName] = useState({
+    name: 'Diego'
+  })
+
+  const changeNameMethod = (event) => {
+    setName({
+      name: event.target.value
+    })
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <UserInput changeName={changeNameMethod} actualValue={name.name}></UserInput>
+
+      <UserOutput name={name.name}></UserOutput>
+      <UserOutput name={name.name}></UserOutput>
     </div>
   );
 }
