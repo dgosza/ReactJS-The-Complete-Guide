@@ -17,19 +17,6 @@ const App = () => {
       showPersons: false
    })
 
-   const switchNameHandler = (newName) => {
-      // console.log('entrei no button hehe')
-      //DONT DO THIS: personsState.persons[0].name = 'Diego Fulano de Tal'
-      setPersonsState({
-         persons: [
-            { name: newName, age: 999 },
-            { name: 'de Souza', age: 122 },
-            { name: 'Magalhaes', age: 12 }
-         ],
-         otherState: personsState.otherState,
-      })
-   }
-
    const nameChangedHandler = (event) => {
       setPersonsState({
          persons: [
@@ -39,6 +26,15 @@ const App = () => {
          ],
          otherState: personsState.otherState,
       })
+   }
+
+   const deletePersonHandler = (personIndex) =>{
+     const persons = personsState.persons;
+     persons.splice(personIndex, 1);
+     setPersonsState({
+        persons: persons
+     })
+     
    }
 
    const [counter, setCounter] = useState({ counter: 0 })
@@ -69,29 +65,13 @@ const App = () => {
    if (show.showPersons) {
       personsP = (
          <div >
-            <Person
-               name={personsState.persons[0].name}
-               age={personsState.persons[0].age}
-            >
-               This is a props children
-            </Person>
-
-            <Person
-               name={personsState.persons[1].name}
-               age={personsState.persons[1].age}
-               click={switchNameHandler.bind(this, 'maximilian be')} //passando como argumento pra function.
-               changed={nameChangedHandler}
-            >
-               My Hobbies: Racing
-            </Person>
-
-            <Person
-               name={personsState.persons[2].name}
-               age={personsState.persons[2].age}
-            >
-               inside the person component. we access the value using props.children
-            </Person>
- 
+            {personsState.persons.map( (eachPerson, index) =>{
+               return <Person 
+               name={eachPerson.name}  
+               age={eachPerson.age} 
+               click={() => deletePersonHandler(index)} />
+            } )}
+         
             <Person name={counter.counter}></Person>
          </div>
       );
