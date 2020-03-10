@@ -1,24 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import ValidationComponent from './components/ValidationComponent'
+
 import './App.css';
 
-function App() {
+const App = () => {
+
+  const [counter, setCounter] = useState({ value: 0 })
+  const [showCounter, setShowCounter] = useState({ value: false })
+  const [textValue, setTextValue] = useState({ value: null })
+
+  const receiveText = (event) => {
+    const name = event.target.value
+    console.log(name)
+  }
+
+  const verifyStatus = (event) => {
+    const name = event.target.value
+    const value = name.length != 0 ? true : false;
+    setShowCounter({ value: value })
+    if (value) {
+      const nameLenght = name.length;
+      setCounter({ value: nameLenght })
+    }
+  }
+
+  if (showCounter.value) {
+    var contador = (
+      <div>
+        CONTADOR: <ValidationComponent length={counter.value} />
+      </div>
+    )
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input placeholder="digite aqui..." onChange={verifyStatus, receiveText} ></input>
+
+      {contador}
+
     </div>
   );
 }
