@@ -17,15 +17,28 @@ const App = () => {
       showPersons: false
    })
 
-   const nameChangedHandler = (event) => {
+   const nameChangedHandler = (event, id) => {
+
+      //Retorna o Index de onde esta a pessoa de id tal.
+      //
+      const personIndex = personsState.persons.findIndex( p => {
+         return p.id === id;
+      } )
+      console.log(personIndex)
+      //Copia somente o index onde a pessoa esta localizada.
+      const person = { ...personsState.persons[personIndex]}
+      console.log(person)
+      //Muda o valor de name para o nome digitado
+      person.name = event.target.value;
+      //Copia os valores de persons
+      const persons = [...personsState.persons]
+      persons[personIndex] = person;
+
       setPersonsState({
-         persons: [
-            { name: 'Maxxxxx', age: 999 },
-            { name: event.target.value, age: 122 },
-            { name: 'Souza Magalhaes', age: 12 }
-         ],
+         persons: persons,
          otherState: personsState.otherState,
       })
+
    }
 
    const deletePersonHandler = (personIndex) =>{
@@ -45,7 +58,6 @@ const App = () => {
       })
    }
 
-
    const style = {
       button: {
          backgroundColor: 'blue',
@@ -63,7 +75,6 @@ const App = () => {
 
    let personsP = null
 
-
    if (show.showPersons) {
       personsP = (
          <div >
@@ -72,7 +83,8 @@ const App = () => {
                name={eachPerson.name}  
                age={eachPerson.age} 
                click={() => deletePersonHandler(index)}
-               key={index} />
+               key={eachPerson.id}
+               changed={(event) => nameChangedHandler(event, eachPerson.id)} />
             } )}
             <Person name={counter.counter}></Person>
          </div>
