@@ -1,10 +1,17 @@
 import React from 'react';
 import './CharComponent.css'
 
-const CharComponent = () => {
-    return (
-        <p id="CharComponent">
+const CharComponent = (props) => {
 
+    const handleCharComponent = (text) => {
+        console.log(text)
+        console.log(props.array)
+    }
+
+    return (
+        <p id="CharComponent" onClick={props.click}>
+            {props.text}
+            
         </p>
     );
 }

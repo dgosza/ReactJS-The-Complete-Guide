@@ -9,15 +9,11 @@ const App = () => {
   const [showCounter, setShowCounter] = useState({ value: false })
   const [textValue, setTextValue] = useState({ value: null })
 
-  const receiveText = (event) => {
-    const name = event.target.value
-    console.log(name)
-  }
-
   const verifyStatus = (event) => {
     const name = event.target.value
     const value = name.length != 0 ? true : false;
-    setShowCounter({ value: value })
+    setShowCounter({ value: value });
+    setTextValue({ value: name })
     if (value) {
       const nameLenght = name.length;
       setCounter({ value: nameLenght })
@@ -26,8 +22,8 @@ const App = () => {
 
   if (showCounter.value) {
     var contador = (
-      <div>
-        CONTADOR: <ValidationComponent length={counter.value} />
+      <div id="center">
+        CONTADOR: <ValidationComponent length={counter.value} text={textValue.value} />
       </div>
     )
   }
@@ -35,7 +31,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <input placeholder="digite aqui..." onChange={verifyStatus, receiveText} ></input>
+      <input placeholder="digite aqui..." onChange={verifyStatus} ></input>
 
       {contador}
 
