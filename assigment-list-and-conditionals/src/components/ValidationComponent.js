@@ -4,7 +4,10 @@ import Charcomponent from './CharComponent';
 const ValidationComponent = (props) => {
 
     const handleCharComponent = (letter, index) =>{
-        console.log(textArray[index])
+        
+        const newArray = [...textArray];
+        console.log(newArray[index])
+
     }
     
     const textReceived = props.text;
