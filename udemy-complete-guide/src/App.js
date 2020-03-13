@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, Component } from 'react';
 import Person from './Person/Person.js';
 import Button from '@material-ui/core/Button';
+import './App.css';
 
 const App = () => {
 
@@ -21,12 +22,12 @@ const App = () => {
 
       //Retorna o Index de onde esta a pessoa de id tal.
       //
-      const personIndex = personsState.persons.findIndex( p => {
+      const personIndex = personsState.persons.findIndex(p => {
          return p.id === id;
-      } )
+      })
       console.log(personIndex)
       //Copia somente o index onde a pessoa esta localizada.
-      const person = { ...personsState.persons[personIndex]}
+      const person = { ...personsState.persons[personIndex] }
       console.log(person)
       //Muda o valor de name para o nome digitado
       person.name = event.target.value;
@@ -41,14 +42,14 @@ const App = () => {
 
    }
 
-   const deletePersonHandler = (personIndex) =>{
-   //   const persons = personsState.persons;
+   const deletePersonHandler = (personIndex) => {
+      //   const persons = personsState.persons;
       const persons = [...personsState.persons]
-     persons.splice(personIndex, 1);
-     setPersonsState({
-        persons: persons
-     })
-     
+      persons.splice(personIndex, 1);
+      setPersonsState({
+         persons: persons
+      })
+
    }
 
    const [counter, setCounter] = useState({ counter: 0 })
@@ -56,16 +57,6 @@ const App = () => {
       setCounter({
          counter: counter.counter + 1
       })
-   }
-
-   const style = {
-      button: {
-         backgroundColor: 'blue',
-         font: 'inherit',
-         borderColor: '1px solid blue',
-         padding: '8px',
-         cursor: 'pointer'
-      }
    }
 
    const togglePersonsHandler = () => {
@@ -78,25 +69,45 @@ const App = () => {
    if (show.showPersons) {
       personsP = (
          <div >
-            {personsState.persons.map( (eachPerson, index) =>{
-               return <Person 
-               name={eachPerson.name}  
-               age={eachPerson.age} 
-               click={() => deletePersonHandler(index)}
-               key={eachPerson.id}
-               changed={(event) => nameChangedHandler(event, eachPerson.id)} />
-            } )}
+            {personsState.persons.map((eachPerson, index) => {
+               return <Person
+                  name={eachPerson.name}
+                  age={eachPerson.age}
+                  click={() => deletePersonHandler(index)}
+                  key={eachPerson.id}
+                  changed={(event) => nameChangedHandler(event, eachPerson.id)} />
+            })}
             <Person name={counter.counter}></Person>
          </div>
       );
+
+      // style.button.backgroundColor = 'red';
+      // style.button[':hover'] = {
+      //    backgroundColor: 'purple',
+      //    color: 'red'
+      // }
+
    }
 
+   let classes = [];
+
+   if (personsState.persons.length <= 2) {
+      classes.push('red');
+   }
+
+   if (personsState.persons.length <= 1) {
+      classes.push('bold')
+   }
+
+   console.log(classes)
+
    return (
+
       <div className="App">
          <h1>React App</h1>
-         <h1>learning</h1>
+         <p className={classes.join(' ')}>learning</p>
 
-         <button style={style.button} >Normal button without material component</button>
+         <ButtonStyled alteracao={show.showPersons} >Normal button without material component</ButtonStyled>
 
          <Button variant="contained" color="secondary" onClick={togglePersonsHandler}>
             Toggle Persons
@@ -111,6 +122,7 @@ const App = () => {
          }
 
       </div>
+
    )
 
 }
