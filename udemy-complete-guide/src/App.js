@@ -1,7 +1,19 @@
-import React, { useState, Component } from 'react';
+import React, { useState } from 'react';
 import Person from './Person/Person.js';
 import Button from '@material-ui/core/Button';
 import './App.css';
+import styled from 'styled-components'
+
+const ButtonStyled = styled.button`
+   background-color: ${props => props.alteracao ? 'red' : 'black'};
+   color: white;
+   font: inherit;
+   border-color: 1px solid blue;
+   padding: 8px;
+   cursor: pointer;
+
+
+`
 
 const App = () => {
 
@@ -21,7 +33,6 @@ const App = () => {
    const nameChangedHandler = (event, id) => {
 
       //Retorna o Index de onde esta a pessoa de id tal.
-      //
       const personIndex = personsState.persons.findIndex(p => {
          return p.id === id;
       })

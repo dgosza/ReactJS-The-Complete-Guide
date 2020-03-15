@@ -22,22 +22,14 @@ const StyleP = styled.p`
 
 const Person = (props) => {
 
-    // const style = {
-    //     '@media(min-width: 500px)': {
-    //         width: '450px',
-
-    //     }
-    // }
-
-    return (
-        // <div className="Person" style={style}>
-        <StyledDiv>
-            <StyleP>< p onClick={props.click} > I'm {props.name} and I am {props.age} years old</p></StyleP>
-            < p > {props.children}</p >
-            <p>{props.counter}</p>
-            <input type="text" onChange={props.changed} />
-        </StyledDiv>
-    )
+        return (
+            <StyledDiv>
+                <StyleP>< p onClick={props.click} > I'm {props.name} and I am {props.age} years old</p></StyleP>
+                < p > {props.children}</p >
+                <p>{props.counter}</p>
+                <input type="text" onChange={props.changed} />
+            </StyledDiv>
+        )
 };
 
 export default Person;
