@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/cockpit/Cockpit'
 import './App.css';
-import styled from 'styled-components'
 
 const App = () => {
 
