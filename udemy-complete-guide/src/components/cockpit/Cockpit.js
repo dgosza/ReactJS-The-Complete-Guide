@@ -13,8 +13,6 @@ const ButtonStyled = styled.a `
 
 const Cockpit = (props) => {
 
-
-
     let classes = [];
 
     if (props.person.length <= 2) {
@@ -24,7 +22,6 @@ const Cockpit = (props) => {
     if (props.person.length <= 1) {
         classes.push('bold')
     }
-
 
     return (
         <div>
