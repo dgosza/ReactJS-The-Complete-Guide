@@ -25,7 +25,7 @@ const Person = (props) => {
     return (
 
         <StyledDiv>
-            <StyleP>< p onClick={props.click} > I'm {props.name} and I am {props.age} years old</p></StyleP>
+            <StyleP>< p onClick={props.click} > I'm {props.name} and I'm {props.age} years old!!</p></StyleP>
             < p > {props.children}</p >
             <p>{props.counter}</p>
             <input type="text" onChange={props.changed} />
