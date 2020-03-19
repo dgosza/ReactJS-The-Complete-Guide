@@ -27,7 +27,7 @@ const Cockpit = (props) => {
         <div>
             <h1>React App</h1>
             <p className={classes.join(' ')}>learning</p>
-
+            <p> {props.title} </p>
             <ButtonStyled alteracao={props.showPerson} >Normal button without material component</ButtonStyled>
 
             <Button variant="contained" color="secondary" onClick={props.clickHandlePerson}>

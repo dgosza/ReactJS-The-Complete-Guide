@@ -3,7 +3,7 @@ import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/cockpit/Cockpit'
 import './App.css';
 
-const App = () => {
+const App = (props) => {
 
    const [personsState, setPersonsState] = useState({
       persons: [
@@ -75,7 +75,13 @@ const App = () => {
 
       <div className="App">
 
-         <Cockpit person={personsState.persons} clickHandlePerson={togglePersonsHandler} showPerson={show.showPersons}></Cockpit>
+         <Cockpit
+            person={personsState.persons}
+            clickHandlePerson={togglePersonsHandler}
+            showPerson={show.showPersons}
+            title={props.appTitle}
+            >
+         </Cockpit>
 
          {
             personsP ? personsP : null
