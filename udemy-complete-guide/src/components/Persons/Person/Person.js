@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './Person.css'
 import styled from 'styled-components';
 
