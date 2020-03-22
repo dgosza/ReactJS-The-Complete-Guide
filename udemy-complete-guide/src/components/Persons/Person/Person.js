@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './Person.css'
 import styled from 'styled-components';
 
@@ -20,18 +20,20 @@ const StyleP = styled.p`
     font-size:23px;
 `
 
-const Person = (props) => {
+class Person extends Component {
 
-    return (
+    render() {
+        return (
 
-        <StyledDiv>
-            <StyleP>< p onClick={props.click} > I'm {props.name} and I'm {props.age} years old!!</p></StyleP>
-            < p > {props.children}</p >
-            <p>{props.counter}</p>
-            <input type="text" onChange={props.changed} />
-        </StyledDiv>
+            <StyledDiv>
+                <StyleP>< p onClick={this.props.click} > I'm {this.props.name} and I'm {this.props.age} years old!!</p></StyleP>
+                < p > {this.props.children}</p >
+                <p>{this.props.counter}</p>
+                <input type="text" onChange={this.props.changed} />
+            </StyledDiv>
 
-    )
+        )
+    }
 };
 
 export default Person;
