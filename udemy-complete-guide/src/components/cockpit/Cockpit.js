@@ -20,7 +20,7 @@ const Cockpit = (props) => {
     let classes = [];
 
     if (props.person.length <= 2) {
-        classes.push('red');
+        classes.push('redd');
     }
 
     if (props.person.length <= 1) {
