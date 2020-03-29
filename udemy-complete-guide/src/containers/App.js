@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/cockpit/Cockpit'
 import './App.css';
+import Lifecycle from '../components/LifeCycle';
 
 const App = (props) => {
 
@@ -87,6 +88,7 @@ const App = (props) => {
             personsP ? personsP : null
          }
 
+         <Lifecycle></Lifecycle>
       </div>
 
    )

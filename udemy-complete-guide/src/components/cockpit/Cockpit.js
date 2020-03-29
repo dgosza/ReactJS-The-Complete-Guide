@@ -14,7 +14,7 @@ const ButtonStyled = styled.a `
 const Cockpit = (props) => {
 
     useEffect( () =>{
-        console.log('cockpit.js useEffect')
+        
     })
 
     let classes = [];
