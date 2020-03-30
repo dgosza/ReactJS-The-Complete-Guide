@@ -12,15 +12,25 @@ class Lifecycle extends React.Component {
 
     static getDerivedStateFromPros(props, state) {
 
-        return state
         console.log('getDerivedStateFromProps')
+        return state
     }
 
-    render() {
+    componentDidMount(){
+        console.log('component did mount.')
+    }
+
+
+    render(){
+        console.log('render')
+
         return (
-            <p>oi</p>
+            
+            <h1>a</h1>
+            
         )
     }
+    
 
 }
 

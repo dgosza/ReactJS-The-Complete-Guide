@@ -14,8 +14,14 @@ const ButtonStyled = styled.a `
 const Cockpit = (props) => {
 
     useEffect( () =>{
-        
-    })
+        console.log('cockpit js use Effect')
+        setTimeout(() => {
+            alert('saved data to cloud!');
+        }, 1000);
+        return () =>{
+            console.log('componentdidinmout')
+        }
+    }, [])
 
     let classes = [];
 
