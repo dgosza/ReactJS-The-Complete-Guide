@@ -3,6 +3,7 @@ import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/cockpit/Cockpit'
 import './App.css';
 import Lifecycle from '../components/LifeCycle';
+import WithClass from '../components/hoc/WithClass'
 
 const App = (props) => {
 
@@ -12,7 +13,8 @@ const App = (props) => {
          { id: '312', name: 'Manu', age: 29 },
          { id: '534', name: 'Ste', age: 30 }
       ],
-      otherState: 'AnotherState'
+      otherState: 'AnotherState',
+      showCockpit: true
    });
 
    const [show, setShow] = useState({
@@ -74,14 +76,14 @@ const App = (props) => {
 
    return (
 
-      <div className="App">
+      <WithClass classes="App">
 
          <Cockpit
             person={personsState.persons}
             clickHandlePerson={togglePersonsHandler}
             showPerson={show.showPersons}
             title={props.appTitle}
-            >
+         >
          </Cockpit>
 
          {
@@ -89,7 +91,7 @@ const App = (props) => {
          }
 
          <Lifecycle></Lifecycle>
-      </div>
+      </WithClass>
 
    )
 

@@ -1,8 +1,9 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
+import Aux from '../hoc/Auxiliar';
 
-const ButtonStyled = styled.a `
+const ButtonStyled = styled.a`
     background-color: ${props => props.alteracao ? 'red' : 'black'};
     color: white;
     font: inherit;
@@ -13,13 +14,16 @@ const ButtonStyled = styled.a `
 
 const Cockpit = (props) => {
 
-    useEffect( () =>{
+    useEffect(() => {
         console.log('cockpit js use Effect')
-        setTimeout(() => {
+
+        const timer = setTimeout(() => {
             alert('saved data to cloud!');
         }, 1000);
-        return () =>{
-            console.log('componentdidinmout')
+
+        return () => {
+            clearTimeout(timer);
+            console.log('rockpit unmount')
         }
     }, [])
 
@@ -34,7 +38,7 @@ const Cockpit = (props) => {
     }
 
     return (
-        <div>
+        <Aux>
             <h1>React App</h1>
             <p className={classes.join(' ')}>learning</p>
             <p> {props.title} </p>
@@ -43,9 +47,9 @@ const Cockpit = (props) => {
             <Button variant="contained" color="secondary" onClick={props.clickHandlePerson}>
                 Toggle Persons
             </Button>
+        </Aux>
 
-        </div>
     )
 }
 
-export default Cockpit;
+export default React.memo(Cockpit);
