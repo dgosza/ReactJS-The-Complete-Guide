@@ -11,6 +11,7 @@ const App = (props) => {
       persons: [
          { id: 'das', name: 'Max', age: 23 },
          { id: '312', name: 'Manu', age: 29 },
+         { id: '312', name: 'Manu', age: 29 },
          { id: '534', name: 'Ste', age: 30 }
       ],
       otherState: 'AnotherState',
