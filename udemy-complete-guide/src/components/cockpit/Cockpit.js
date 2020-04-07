@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
 import Aux from '../hoc/Auxiliar';
@@ -14,15 +14,16 @@ const ButtonStyled = styled.a`
 
 const Cockpit = (props) => {
 
+    const toggleBtnRef = useRef(null)
+
+
     useEffect(() => {
         console.log('cockpit js use Effect')
 
-        const timer = setTimeout(() => {
-            alert('saved data to cloud!');
-        }, 1000);
+        toggleBtnRef.current.click();
+
 
         return () => {
-            clearTimeout(timer);
             console.log('rockpit unmount')
         }
     }, [])
@@ -44,7 +45,7 @@ const Cockpit = (props) => {
             <p> {props.title} </p>
             <ButtonStyled alteracao={props.showPerson} >Normal button without material component</ButtonStyled>
 
-            <Button variant="contained" color="secondary" onClick={props.clickHandlePerson}>
+            <Button ref={toggleBtnRef} variant="contained" color="secondary" onClick={props.clickHandlePerson}>
                 Toggle Persons
             </Button>
         </Aux>

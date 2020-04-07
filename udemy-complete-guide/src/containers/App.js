@@ -4,6 +4,7 @@ import Cockpit from '../components/cockpit/Cockpit'
 import './App.css';
 import Lifecycle from '../components/LifeCycle';
 import WithClass from '../components/hoc/WithClass'
+import AuthContext from '../components/context/auth-context'
 
 const App = (props) => {
 
@@ -76,9 +77,9 @@ const App = (props) => {
    }
 
    return (
-
+      
       <WithClass classes="App">
-
+         
          <Cockpit
             person={personsState.persons}
             clickHandlePerson={togglePersonsHandler}
