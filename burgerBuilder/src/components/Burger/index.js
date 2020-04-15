@@ -1,10 +1,25 @@
 import React from 'react';
 import './index.css';
+import BurgerIngredient from './BurgerIngredient/'
 
-const burger = () =>{
+const burger = ({ ingredients }) => {
+
+    const renderIngredient = Object.keys(ingredients)
+    .map(ingredientKey => {
+        return [...Array(ingredients[ingredientKey])].map((_, i) => {
+              return <BurgerIngredient key={ingredientKey + i} ingredientType={ingredientKey} />
+        })
+        
+    });
+    
+
     return (
-        <h1>aa</h1>
+        <div className="Burger">
+            <BurgerIngredient ingredientType="bread-top"></BurgerIngredient>
+            {renderIngredient}
+            <BurgerIngredient ingredientType="bread-bottom"></BurgerIngredient>
+        </div>
     )
 }
 
-import default burger;
+export default burger;
