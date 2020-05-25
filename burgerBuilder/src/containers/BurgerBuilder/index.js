@@ -20,7 +20,6 @@ class BugerBuilder extends React.Component {
 
     constructor(props) {
         super(props)
-
     }
 
     state = {
@@ -86,6 +85,11 @@ class BugerBuilder extends React.Component {
         this.setState({purchasing: false})
     }
 
+    purchaseContinueHandler = () => {
+        alert('You continue!')
+    }
+
+
     render() {
 
         const disabledInfo = {
@@ -98,7 +102,10 @@ class BugerBuilder extends React.Component {
         return (
             <Aux>
                 <Modal show={this.state.purchasing} modalClosed={this.purchaseCancelHandler} >
-                    <OrderSummary ingredients={this.state.ingredients} />
+                    <OrderSummary 
+                    ingredients={this.state.ingredients} 
+                    purchaseCancelled={this.purchaseCancelHandler} 
+                    purchaseContinued={this.purchaseContinueHandler} />
                 </Modal>
                 <Burger ingredients={this.state.ingredients}></Burger>
                 <BuildControls
