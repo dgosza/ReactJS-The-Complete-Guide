@@ -2,16 +2,15 @@ import React from 'react';
 import './style.css'
 
 import Logo from '../../Logo'
+import NavigationItems from '../NavigationItems'
 
 const Toolbar = (props) => {
 
-    return(
+    return (
         <header className="Toolbar">
             <div>Menu</div>
-            <Logo/>
-            <nav>
-                ...
-            </nav>
+            <Logo />
+            <NavigationItems/>
 
         </header>
     )
