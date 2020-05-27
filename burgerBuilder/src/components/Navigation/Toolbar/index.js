@@ -3,14 +3,21 @@ import './style.css'
 
 import Logo from '../../Logo'
 import NavigationItems from '../NavigationItems'
+import DrawerToggle from '../SideDrawer/DrawerToggle'
 
 const Toolbar = (props) => {
 
     return (
         <header className="Toolbar">
-            <div>Menu</div>
-            <Logo />
-            <NavigationItems/>
+            <DrawerToggle clicked={props.drawerToggleClicked} />
+
+            <div className="LogoItemTol">
+                <Logo />
+            </div>
+
+            <nav className="DesktopOnly">
+                <NavigationItems />
+            </nav>
 
         </header>
     )

@@ -3,9 +3,9 @@ import './style.css'
 
 import imageLogo from '../../assets/images/burger.png'
 
-const Logo = () => (
+const Logo = (props) => (
     <div className="Logo">
-        <img src={imageLogo} alt="MyBurger"></img>
+        <img src={imageLogo} alt="MyBurger" ></img>
     </div>
 )
 
