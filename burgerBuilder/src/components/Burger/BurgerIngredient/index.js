@@ -3,7 +3,7 @@ import propTypes from 'prop-types'
 //CSS
 import './index.css'
 
-const burgerIngredient = ( {ingredientType} ) => {
+const burgerIngredient = ({ ingredientType }) => {
 
     let ingredient = null;
 
@@ -11,7 +11,7 @@ const burgerIngredient = ( {ingredientType} ) => {
 
         case ('bread-bottom'):
             ingredient = <div className="BreadBottom"></div>
-        break;
+            break;
 
         case ('bread-top'):
             ingredient = (
@@ -20,34 +20,34 @@ const burgerIngredient = ( {ingredientType} ) => {
                     <div className="Seeds2"></div>
                 </div>
             )
-        break;
+            break;
 
         case ('meat'):
             ingredient = <div className="Meat"></div>
-        break;
+            break;
 
         case ('cheese'):
             ingredient = <div className="Cheese"></div>
-        break;
+            break;
 
         case ('salad'):
             ingredient = <div className="Salad"></div>
-        break;
+            break;
 
         case ('bacon'):
             ingredient = <div className="Bacon"></div>
-        break;
+            break;
 
         default:
             ingredient = null
-        break;
+            break;
 
     }
 
     return ingredient;
 }
 
-burgerIngredient.propTypes ={
+burgerIngredient.propTypes = {
     ingredientType: propTypes.string.isRequired
 }
 
