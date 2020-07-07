@@ -23,6 +23,8 @@ class Posts extends React.Component {
             .catch(error => {
                 console.log(error)
             });
+
+            document.title = "Posts"
     }
 
     postSelectedHandler = (id) => {
